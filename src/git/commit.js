@@ -2,7 +2,7 @@ import { spawn } from 'child_process';
 
 import path from 'path';
 
-import { writeFileSync, openSync, closeSync } from 'fs';
+import { readFileSync, writeFileSync, openSync, closeSync, statSync } from 'fs';
 
 import dedent from 'dedent';
 
@@ -39,7 +39,7 @@ function commit (sh, repoPath, message, options, done) {
         if (code === 128) {
           console.warn(`
             Git exited with code 128. Did you forget to run:
-    
+
               git config --global user.email "you@example.com"
               git config --global user.name "Your Name"
             `)
@@ -50,7 +50,11 @@ function commit (sh, repoPath, message, options, done) {
       }
     });
   } else {
-    const commitFilePath = path.join(repoPath, '/.git/COMMIT_EDITMSG');
+    const dotGit = path.join(repoPath, '.git');
+    const gitDir = statSync(dotGit).isDirectory()
+      ? dotGit
+      : readFileSync(dotGit, 'utf8').match(/^gitdir: (.*)$/m)[1];
+    const commitFilePath = path.join(gitDir, 'COMMIT_EDITMSG');
     try {
       const fd = openSync(commitFilePath, 'w');
       try {
