@@ -1,14 +1,14 @@
 ### Commitizen for contributors
 When you commit with Commitizen, you'll be prompted to fill out any required commit fields at commit time. No more waiting until later for a git commit hook to run and reject your commit (though [that](https://github.com/kentcdodds/validate-commit-msg) can still be helpful). No more digging through [CONTRIBUTING.md](CONTRIBUTING.md) to find what the preferred format is. Get instant feedback on your commit message formatting and be prompted for required fields.
 
-[![Backers on Open Collective](https://opencollective.com/commitizen/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/commitizen/sponsors/badge.svg)](#sponsors) [![travis.ci](https://img.shields.io/travis/commitizen/cz-cli.svg?style=flat-square&branch=master)](https://travis-ci.org/commitizen/cz-cli) [![Azure Build Status](https://dev.azure.com/commitizen/cz-cli/_apis/build/status/commitizen.cz-cli?branchName=master)](https://dev.azure.com/commitizen/cz-cli/_build/latest?definitionId=2) 
+[![Backers on Open Collective](https://opencollective.com/commitizen/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/commitizen/sponsors/badge.svg)](#sponsors) [![travis.ci](https://img.shields.io/travis/commitizen/cz-cli.svg?style=flat-square&branch=master)](https://travis-ci.org/commitizen/cz-cli) [![Azure Build Status](https://dev.azure.com/commitizen/cz-cli/_apis/build/status/commitizen.cz-cli?branchName=master)](https://dev.azure.com/commitizen/cz-cli/_build/latest?definitionId=2)
  [![codecov.io](https://img.shields.io/codecov/c/github/commitizen/cz-cli.svg?style=flat-square)](https://codecov.io/github/commitizen/cz-cli?branch=master) [![npm monthly downloads](https://img.shields.io/npm/dm/commitizen.svg?style=flat-square)](https://www.npmjs.com/package/commitizen) [![current version](https://img.shields.io/npm/v/commitizen.svg?style=flat-square)](https://www.npmjs.com/package/commitizen) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release) [![commitizen on stackoverflow](https://img.shields.io/badge/stackoverflow-community-orange.svg?longCache=true&style=flat-square&logo=stackoverflow)](https://stackoverflow.com/tags/commitizen)
 
 #### Installing the command line tool
 Installation is as simple as running the following command (if you see `EACCES` error, reading [fixing npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions) may help):
 
 ```
-npm install -g commitizen
+npm install -g @trusk/commitizen
 ```
 
 #### Using the command line tool
@@ -30,7 +30,7 @@ When you're working in a Commitizen friendly repository, you'll be prompted to f
 
 [![Add and commit with Commitizen](https://github.com/commitizen/cz-cli/raw/master/meta/screenshots/add-commit.png)](https://github.com/commitizen/cz-cli/raw/master/meta/screenshots/add-commit.png)
 
-If you're not working in a Commitizen friendly repository, then `git cz` will work just the same as `git commit` but `npx git-cz` will use the [streamich/git-cz](https://github.com/streamich/git-cz) adapter. 
+If you're not working in a Commitizen friendly repository, then `git cz` will work just the same as `git commit` but `npx git-cz` will use the [streamich/git-cz](https://github.com/streamich/git-cz) adapter.
 
 #### Conventional commit messages as a global utility
 
@@ -146,7 +146,7 @@ This will be more convenient for your users because then if they want to do a co
 This example shows how to incorporate Commitizen into the existing `git commit` workflow by using git hooks and the `--hook` command-line option. This is useful for project maintainers
 who wish to ensure the proper commit format is enforced on contributions from those unfamiliar with Commitizen.
 
-Once either of these methods is implemented, users running `git commit` will be presented with an interactive Commitizen session that helps them write useful commit messages. 
+Once either of these methods is implemented, users running `git commit` will be presented with an interactive Commitizen session that helps them write useful commit messages.
 
 > **NOTE:** This example assumes that the project has been set up to [use Commitizen locally](https://github.com/commitizen/cz-cli#optional-install-and-run-commitizen-locally).
 
@@ -160,7 +160,7 @@ exec < /dev/tty
 node_modules/.bin/git-cz --hook
 ```
 
-##### Husky 
+##### Husky
 For `husky` users, add the following configuration to the project's `package.json`:
 
 ```
@@ -320,5 +320,3 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/commitizen/sponsor/7/website" target="_blank"><img src="https://opencollective.com/commitizen/sponsor/7/avatar.svg"></a>
 <a href="https://opencollective.com/commitizen/sponsor/8/website" target="_blank"><img src="https://opencollective.com/commitizen/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/commitizen/sponsor/9/website" target="_blank"><img src="https://opencollective.com/commitizen/sponsor/9/avatar.svg"></a>
-
-

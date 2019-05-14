@@ -1,6 +1,6 @@
 {
   "name": "@trusk/commitizen",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Git commit, but play nice with conventions.",
   "main": "dist/index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/@commitizen/cz-conventional-changelog"
     },
     "ghooks": {
       "pre-commit": "npm run lint && npm run test && npm run check-coverage"
