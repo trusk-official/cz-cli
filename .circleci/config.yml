@@ -30,6 +30,17 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
+  build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Build project
+          command: npm run build
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
   deploy:
     <<: *defaults
     steps:
@@ -50,9 +61,17 @@ workflows:
           filters:
             tags:
               only: /^[0-9]+\.[0-9]+\.[0-9]+/
-      - deploy:
+      - build:
           requires:
             - test
+          filters:
+            tags:
+              only: /^[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              ignore: /.*/
+      - deploy:
+          requires:
+            - build
           filters:
             tags:
               only: /^[0-9]+\.[0-9]+\.[0-9]+/
